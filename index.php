@@ -136,10 +136,11 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
                     <select class="input-group-text cursor-pointer" id="selectBox" onchange="xmrConvert(this.value)" aria-label="<?php echo $l_fiatSelect; ?>">
                         <?php
                         if (isset($xmr_in)) {
-                            echo '<option value="' . $xmr_in . '">' . $xmr_in . '</option>';
+                            echo '<option value="' . $xmr_in . '">' . (isset(${"l_" . strtolower($xmr_in)}) ? ${"l_" . strtolower($xmr_in)} : $xmr_in) . '</option>';
                         }
                         foreach ($currencies as $currency) {
-                            echo "<option value=\"{$currency}\">{$currency}</option>";
+                            $currencyName = isset(${"l_" . strtolower($currency)}) ? ${"l_" . strtolower($currency)} : $currency;
+                            echo "<option value=\"{$currency}\">{$currencyName}</option>";
                         }
                         ?>
                     </select>
