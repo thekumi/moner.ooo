@@ -8,6 +8,8 @@ $excludedCurrencies = ['bits', 'sats'];
 
 // Fetch the previously stored data
 $previousData = json_decode(file_get_contents("coingecko.json"), true);
+$output = $previousData;
+
 $currentTime = time();
 
 // Check if five seconds have passed since the last update
@@ -62,7 +64,9 @@ if (($currentTime - $previousData['time']) >= 5) {
 	file_put_contents("coingecko.json", json_encode($newData, JSON_PRETTY_PRINT));
 	file_put_contents("coingecko-original.json", json_encode($moneroData, JSON_PRETTY_PRINT));
 
-	echo "Data updated successfully.";
-} else {
-	echo "No data update needed. Last update was less than five seconds ago.";
+	$output = $newData;
 }
+
+// Output the data
+header('Content-Type: application/json');
+echo json_encode($newData, JSON_PRETTY_PRINT);
