@@ -1,8 +1,12 @@
+# Configuration file
+/config.php
+
+# NodeJS dependencies
 /node_modules/
 
 # Coingecko export data
-coingecko.json
-coingecko-original.json
+/coingecko.json
+/coingecko-original.json
 
 # Compiled files
 /js/
