@@ -105,7 +105,7 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
                                 foreach ($chunks as $chunk) {
                                     echo "<tr>";
                                     foreach ($chunk as $currency) {
-                                        echo "<td><button type=\"button\" class=\"btn btn-light\" title=\"<a class='text-decoration-none fiat-tooltip' href='/?in={$currency}'><b>{$currency}</b></a>\" data-toggle=\"tooltip\" data-bs-html=\"true\" data-placement=\"top\">{$currency}</button></td>";
+                                        echo "<td><a href=\"/?in={$currency}\" class=\"btn btn-light\" data-toggle=\"tooltip\" data-bs-html=\"true\" data-placement=\"top\">{$currency}</a></td>";
                                     }
                                     echo "</tr>";
                                     echo "<tr style=\"display:none;\">";
@@ -159,7 +159,9 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
         </div>
     </div>
 
-    <script>const exchangeRates = <?php echo json_encode($exchangeRates); ?>;</script>
+    <script>
+        const exchangeRates = <?php echo json_encode($exchangeRates); ?>;
+    </script>
     <script src="js/main.js"></script>
 
 </body>
