@@ -19,7 +19,7 @@ $l_fiatSelect = "Currency choice";
 $l_fiatInput = "Fiat value input field";
 $l_xmrInput = "Monero value input field";
 
-// Tooltip Titel
+// Tooltip Title
 $l_eur = "Euro";
 $l_btc = "Bitcoin";
 $l_chf = "Swiss Franc";
@@ -49,7 +49,7 @@ $l_vnd = "Vietnamese dong";
 $l_vef = "Venezuelan bolívar";
 $l_thb = "Baht";
 $l_sar = "Saudi Riyal";
-$l_sek = "Shwedish Krona";
+$l_sek = "Swedish Krona";
 $l_pkr = "Pakistani Rupee";
 $l_nzd = "New Zealand Dollar";
 $l_php = "Philippine Peso";
