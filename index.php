@@ -44,6 +44,16 @@ $xmr_in = isset($_GET["in"]) ? strtoupper(htmlspecialchars($_GET["in"])) : 'EUR'
 $xmr_in_fiat = number_format($exchangeRates[$xmr_in], $xmr_in == 'BTC' || $xmr_in == 'LTC' || $xmr_in == 'ETH' || $xmr_in == 'XAG' || $xmr_in == 'XAU' ? 8 : 2);
 
 $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
+
+// Configuration file
+
+$config = [];
+if (file_exists('config.php')) {
+    $config = require 'config.php';
+}
+
+$display_servers_guru = isset($config['servers_guru']) && $config['servers_guru'] === true;
+$attribution = isset($config['attribution']) ? $config['attribution'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +161,11 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
 
                 <hr class="gold" />
                 <small class="cursor-default text-white text-info" lang="<?php echo $lang_meta; ?>">
-                    <?php echo $info; ?>
+                    <?php echo $info;
+                    if ($display_servers_guru) {
+                        echo $servers_guru;
+                    };
+                    echo $attribution; ?>
                 </small>
                 <hr />
                 <small class="cursor-default text-white" lang="<?php echo $lang_meta; ?>">
