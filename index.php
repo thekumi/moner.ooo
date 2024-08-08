@@ -59,8 +59,10 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
     <meta name="description" lang="<?php echo $lang_meta; ?>" content="<?php echo $meta_description; ?>" />
     <meta name="keywords" lang="<?php echo $lang_meta; ?>" content="<?php echo $meta_keywords; ?>" />
 
-
-    <!-- TODO: Add corresponding OpenGraph tags -->
+    <meta property="og:title" content="<?php echo $page_title; ?>" />
+    <meta property="og:description" content="<?php echo $meta_description; ?>" />
+    <meta property="og:image" content="img/mstile-310x150.png" />
+    <meta property="og:type" content="website" />
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
@@ -161,7 +163,7 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
     </div>
 
     <script>
-        const exchangeRates = <?php echo json_encode($exchangeRates); ?>;
+        var exchangeRates = <?php echo json_encode($exchangeRates); ?>;
     </script>
     <script src="js/main.js"></script>
 

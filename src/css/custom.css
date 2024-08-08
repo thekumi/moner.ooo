@@ -34,6 +34,7 @@ a.fiat-tooltip {
 table.table {
     max-width: 472px;
     margin: auto;
+    --bs-table-bg: transparent;
 }
 
 .input-group-text {
