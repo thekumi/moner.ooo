@@ -3,3 +3,6 @@
 # Coingecko export data
 coingecko.json
 coingecko-original.json
+
+# Compiled JS
+/js/
