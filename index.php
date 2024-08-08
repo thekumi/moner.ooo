@@ -88,7 +88,6 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
     <meta name="apple-mobile-web-app-status-bar-style" content="#193e4c" />
 
     <link href="css/main.css" rel="stylesheet" />
-    <link href="css/custom.css" rel="stylesheet" />
 </head>
 
 <body>
