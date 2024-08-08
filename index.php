@@ -104,7 +104,8 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
                                 foreach ($chunks as $chunk) {
                                     echo "<tr>";
                                     foreach ($chunk as $currency) {
-                                        echo "<td><a href=\"/?in={$currency}\" class=\"btn btn-light\" data-toggle=\"tooltip\" data-bs-html=\"true\" data-placement=\"top\">{$currency}</a></td>";
+                                        $currencyName = isset(${"l_" . strtolower($currency)}) ? ${"l_" . strtolower($currency)} : $currency;
+                                        echo "<td><a href=\"/?in={$currency}\" class=\"btn btn-light\" title=\"{$currencyName}\" data-toggle=\"tooltip\" data-bs-html=\"true\" data-placement=\"top\">{$currency}</a></td>";
                                     }
                                     echo "</tr>";
                                     echo "<tr style=\"display:none;\">";
