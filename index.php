@@ -4,6 +4,8 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
+// Array of supported currencies
+// TODO: Load dynamically from the API data
 $array = array("EUR",
 	"USD",
 	"GBP",
@@ -57,14 +59,16 @@ $array = array("EUR",
 
 include('coingecko.php');
 
-// Holt die API Daten
+// Fetches the API data from the JSON file
+// TODO: This doesn't exist on first load, so it will display warnings
 $api_cg = json_decode(file_get_contents('coingecko.json'));
 
-// Holt die Zeit der letzten Abfrage
+// Fetches the time of the last API data update
 $time_cg = date("H:i:s", $api_cg->time);
 $time = $time_cg;
 
-// Holt die einzelnen Werte für die Berechnung
+// Fetches the individual currency values from the API data
+// TODO: Make that dynamic
 $BTC = $api_cg->btc->lastValue;
 $EUR = $api_cg->eur->lastValue;
 $USD = $api_cg->usd->lastValue;
@@ -116,7 +120,7 @@ $CZK = $api_cg->czk->lastValue;
 $DKK = $api_cg->dkk->lastValue;
 $MXN = $api_cg->mxn->lastValue;
 
-// Lädt die Sprachdatei, nach der Sprache die im Browser eingestellt wurde
+// Load the language file based on the browser language
 if(array_key_exists('HTTP_ACCEPT_LANGUAGE', $_SERVER)){
     $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 }else{
@@ -254,6 +258,8 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
     <title lang="<?php echo $lang_meta; ?>"><?php echo $page_title; ?></title>
     <meta name="description" lang="<?php echo $lang_meta; ?>" content="<?php echo $meta_description; ?>"/>
     <meta name="keywords" lang="<?php echo $lang_meta; ?>" content="<?php echo $meta_keywords; ?>"/>
+
+    <!-- TODO: Add corresponding OpenGraph tags -->
     
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
@@ -306,6 +312,7 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
                     <h1 lang="<?php echo $lang_meta; ?>"><span style="color:#4d4d4d;">&darr;</span>&nbsp;<span style="color:#ff6600;" title="Monero">XMR</span>&nbsp;<?php echo $title_h1;?>&nbsp;<span style="color:#4d4d4d;">&darr;</span></h1>
                     <div class="fiat-btns table-responsive">
                         <table class="table table-sm table-borderless">
+                            <!-- TODO: Generate this table dynamically -->
                             <tbody>
                                 <tr>
                                     <td><button type="button" class="btn btn-light" title="<a class='text-decoration-none fiat-tooltip' href='/'><b><?php echo $l_eur; ?></b></a>" data-toggle="tooltip" data-bs-html="true" data-placement="top">EUR</button></td>
@@ -457,6 +464,7 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
                             echo '<option value="'.$xmr_in.'">'.$xmr_in.'</option>';
                         }
                         ?>
+                        <!-- TODO: Populate this select box dynamically -->
                         <option value="EUR" label="<?php echo $l_eur; ?>">EUR</option>
                         <option value="USD" label="<?php echo $l_usd; ?>">USD</option>
                         <option value="GBP" label="<?php echo $l_gbp; ?>">GBP</option>
@@ -524,6 +532,7 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
     </div>
 
 
+<!-- TODO: Move these scripts to a separate file -->
 <script type="text/javascript">
     function fiatConvert(value)
     {
@@ -531,6 +540,7 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
         let xmrValue = document.getElementById("xmrInput");
         let selectBox = document.getElementById("selectBox").value;
 
+        // TODO: Do this dynamically
         if (selectBox == "BTC") {
                 let value = fiatAmount / <?php echo $BTC; ?>;
                 xmrValue.value = value.toFixed(12);
@@ -691,6 +701,8 @@ $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
         let xmrAmount = document.getElementById("xmrInput").value;
         let fiatValue = document.getElementById("fiatInput");
         let selectBox = document.getElementById("selectBox").value;
+
+        // TODO: Do this dynamically
 
         if (selectBox == "BTC") {
                 let value = xmrAmount * <?php echo $BTC; ?>;
