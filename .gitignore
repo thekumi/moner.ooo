@@ -1,1 +1,5 @@
 /node_modules/
+
+# Coingecko export data
+coingecko.json
+coingecko-original.json
