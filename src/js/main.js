@@ -15,13 +15,51 @@ console.log(tooltipList);
 let lastModifiedField = 'xmr';
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Add event listeners to track the last modified input field
-  document.getElementById("xmrInput").addEventListener('input', function () {
+  const copyXMRBtn = document.getElementById('copyXMRBtn');
+  const copyFiatBtn = document.getElementById('copyFiatBtn');
+  const xmrInput = document.getElementById('xmrInput');
+  const fiatInput = document.getElementById('fiatInput');
+  const selectBox = document.getElementById('selectBox');
+
+  // Add event listeners for the copy buttons
+  copyXMRBtn.addEventListener('click', copyToClipBoardXMR);
+  copyFiatBtn.addEventListener('click', copyToClipBoardFiat);
+
+  // Add event listeners for the XMR input field
+  xmrInput.addEventListener('change', () => xmrConvert(xmrInput.value));
+  xmrInput.addEventListener('keyup', () => {
+    xmrInput.value = xmrInput.value.replace(/[^\.^,\d]/g, '');
+    xmrInput.value = xmrInput.value.replace(/\,/, '.');
+    if (xmrInput.value.split('.').length > 2) {
+      xmrInput.value = xmrInput.value.slice(0, -1);
+    }
+    xmrConvert(xmrInput.value);
+  });
+  xmrInput.addEventListener('input', () => {
     lastModifiedField = 'xmr';
   });
 
-  document.getElementById("fiatInput").addEventListener('input', function () {
+  // Add event listeners for the fiat input field
+  fiatInput.addEventListener('change', () => fiatConvert(fiatInput.value));
+  fiatInput.addEventListener('keyup', () => {
+    fiatInput.value = fiatInput.value.replace(/[^\.^,\d]/g, '');
+    fiatInput.value = fiatInput.value.replace(/\,/, '.');
+    if (fiatInput.value.split('.').length > 2) {
+      fiatInput.value = fiatInput.value.slice(0, -1);
+    }
+    fiatConvert(fiatInput.value);
+  });
+  fiatInput.addEventListener('input', () => {
     lastModifiedField = 'fiat';
+  });
+
+  // Add event listener for the select box to change the conversion
+  selectBox.addEventListener('change', () => {
+    if (lastModifiedField === 'xmr') {
+      xmrConvert(selectBox.value)
+    } else {
+      fiatConvert(selectBox.value)
+    }
   });
 
   // Fetch updated exchange rates every 5 seconds
