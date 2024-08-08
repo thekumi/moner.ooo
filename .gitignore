@@ -4,5 +4,6 @@
 coingecko.json
 coingecko-original.json
 
-# Compiled JS
+# Compiled files
 /js/
+/css/
