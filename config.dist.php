@@ -8,5 +8,6 @@ return [
     ],
     'preferred_currencies' => [ // Currencies that should be displayed at the top of the lists
         'usd', 'eur', 'gbp', 'cad', 'btc', 'eth', 'ltc'
-    ]
+    ],
+    'github_url' => 'https://github.com/rottenwheel/moner.ooo/',
 ];
