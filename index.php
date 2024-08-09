@@ -54,6 +54,16 @@ if (file_exists('config.php')) {
 
 $display_servers_guru = isset($config['servers_guru']) && $config['servers_guru'] === true;
 $attribution = isset($config['attribution']) ? $config['attribution'] : '';
+$preferred_currencies = isset($config['preferred_currencies']) ? $config['preferred_currencies'] : [];
+
+// Order preferred currencies to the top
+foreach (array_reverse($preferred_currencies) as $currency) {
+    $currency = strtoupper($currency);
+    if (($key = array_search($currency, $currencies)) !== false) {
+        unset($currencies[$key]);
+        array_unshift($currencies, $currency);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -148,12 +158,10 @@ $attribution = isset($config['attribution']) ? $config['attribution'] : '';
                     <input class="form-control" id="fiatInput" type="text" spellcheck="false" autocorrect="off" inputmode="numeric" aria-label="<?php echo $l_fiatInput; ?>" value="<?php echo $xmr_in_fiat; ?>">
                     <select class="input-group-text cursor-pointer" id="selectBox" aria-label="<?php echo $l_fiatSelect; ?>">
                         <?php
-                        if (isset($xmr_in)) {
-                            echo '<option value="' . $xmr_in . '">' . (isset(${"l_" . strtolower($xmr_in)}) ? ${"l_" . strtolower($xmr_in)} : $xmr_in) . '</option>';
-                        }
                         foreach ($currencies as $currency) {
+                            $selected = $currency == $xmr_in ? 'selected' : '';
                             $currencyName = isset(${"l_" . strtolower($currency)}) ? ${"l_" . strtolower($currency)} : $currency;
-                            echo "<option value=\"{$currency}\">{$currencyName}</option>";
+                            echo "<option {$selected} value=\"{$currency}\">{$currencyName}</option>";
                         }
                         ?>
                     </select>
