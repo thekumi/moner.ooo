@@ -7,6 +7,17 @@ header("Pragma: no-cache");
 // Get currency data from JSON
 $api_cg = json_decode(file_get_contents('coingecko.json'), true);
 
+// Configuration file
+$config = [];
+if (file_exists('config.php')) {
+    $config = require 'config.php';
+}
+
+$display_servers_guru = isset($config['servers_guru']) && $config['servers_guru'] === true;
+$attribution = isset($config['attribution']) ? $config['attribution'] : '';
+$preferred_currencies = isset($config['preferred_currencies']) ? $config['preferred_currencies'] : [];
+$github_url = isset($config['github_url']) ? $config['github_url'] : 'https://github.com/rottenwheel/moner.ooo/';
+
 // Extract the keys
 $currencies = array_map('strtoupper', array_keys($api_cg));
 
@@ -44,18 +55,6 @@ $xmr_in = isset($_GET["in"]) ? strtoupper(htmlspecialchars($_GET["in"])) : 'EUR'
 $xmr_in_fiat = number_format($exchangeRates[$xmr_in], $xmr_in == 'BTC' || $xmr_in == 'LTC' || $xmr_in == 'ETH' || $xmr_in == 'XAG' || $xmr_in == 'XAU' ? 8 : 2);
 
 $xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
-
-// Configuration file
-
-$config = [];
-if (file_exists('config.php')) {
-    $config = require 'config.php';
-}
-
-$display_servers_guru = isset($config['servers_guru']) && $config['servers_guru'] === true;
-$attribution = isset($config['attribution']) ? $config['attribution'] : '';
-$preferred_currencies = isset($config['preferred_currencies']) ? $config['preferred_currencies'] : [];
-$github_url = isset($config['github_url']) ? $config['github_url'] : 'https://github.com/rottenwheel/moner.ooo/';
 
 // Order preferred currencies to the top
 foreach (array_reverse($preferred_currencies) as $currency) {
