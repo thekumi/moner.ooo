@@ -168,8 +168,19 @@ $attribution = isset($config['attribution']) ? $config['attribution'] : '';
                     echo $attribution; ?>
                 </small>
                 <hr />
+
+                <?php
+                $footer_links = "";
+
+                if (isset($config['footer_links']) && !empty($config['footer_links'])) {
+                    foreach ($config['footer_links'] as $link) {
+                        $footer_links .= '<a href="' . $link['url'] . '" class="text-white" target="_blank" rel="noopener noreferrer">' . $link['text'] . '</a> | ';
+                    }
+                }
+                ?>
+
                 <small class="cursor-default text-white" lang="<?php echo $lang_meta; ?>">
-                    <?php echo $getmonero . $countrymonero; ?>
+                    <?php echo $footer_links . $getmonero . $countrymonero; ?>
                 </small>
             </div>
 
