@@ -71,6 +71,16 @@ $l_czk = "Koruna tcheca";
 $l_dkk = "Krone dinamarquês";
 $l_clp = "Peso chileno";
 $l_mxn = "Peso mexicano";
+$l_bch = "Bitcoin Cash";
+$l_bnb = "Binance Coin";
+$l_eos = "EOS.IO";
+$l_xrp = "Ripple";
+$l_xlm = "Stellar Lumens";
+$l_link = "Chainlink";
+$l_dot = "Polkadot";
+$l_yfi = "Yearn.Finance";
+$l_gel = "Lari Georgiano";
+$l_xdr = "Direitos Especiais de Saque";
 
 // More Monero links
 $getmonero = '<a class="text-white" href="https://www.getmonero.org/pt-br/" hreflang="pt" target="_blank" rel="external">Site oficial</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">Sistema de vaquinhas comunitárias (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">Monero Observer</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk</a>';

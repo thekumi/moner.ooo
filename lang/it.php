@@ -71,6 +71,16 @@ $l_czk = "Corona Ceca";
 $l_dkk = "Corona Danese";
 $l_clp = "Peso cileno";
 $l_mxn = "Peso messicano";
+$l_bch = "Bitcoin Cash";
+$l_bnb = "Binance Coin";
+$l_eos = "EOS.IO";
+$l_xrp = "Ripple";
+$l_xlm = "Stellar Lumens";
+$l_link = "Chainlink";
+$l_dot = "Polkadot";
+$l_yfi = "Yearn.Finance";
+$l_gel = "Lari Georgiano";
+$l_xdr = "Diritti Speciali di Prelievo";
 
 // Link di Monero
 $getmonero = '<a class="text-white" href="https://www.getmonero.org/it/" hreflang="it" target="_blank" rel="external">Sito ufficiale</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">Community Crowdfunding System (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">Monero Observer</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk</a>';

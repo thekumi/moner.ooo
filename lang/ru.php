@@ -71,6 +71,16 @@ $l_czk = "Чешская крона";
 $l_dkk = "Датская крона";
 $l_clp = "Чилийское песо";
 $l_mxn = "Мексиканское песо";
+$l_bch = "Биткойн Кэш";
+$l_bnb = "Бинанс Коин";
+$l_eos = "EOS.IO";
+$l_xrp = "Рипл";
+$l_xlm = "Стеллар Люменс";
+$l_link = "Чейнлинк";
+$l_dot = "Полкадот";
+$l_yfi = "Ерн.Файненс";
+$l_gel = "Грузинский Лари";
+$l_xdr = "Специальные права заимствования";
 
 // More Monero links
 $getmonero = '<a class="text-white" href="https://www.getmonero.org/ru/" hreflang="ru" target="_blank" rel="external">Официальный сайт</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">Система краудфандинга для сообществ (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">Обозреватель Monero</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk</a>';

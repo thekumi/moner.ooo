@@ -71,6 +71,16 @@ $l_czk = "捷克克朗";
 $l_dkk = "丹麦克朗";
 $l_clp = "智利比索";
 $l_mxn = "墨西哥比索";
+$l_bch = "比特币现金";
+$l_bnb = "币安币";
+$l_eos = "EOS.IO";
+$l_xrp = "瑞波币";
+$l_xlm = "恒星币";
+$l_link = "链环";
+$l_dot = "波卡";
+$l_yfi = "Yearn.Finance";
+$l_gel = "格鲁吉亚拉里";
+$l_xdr = "特别提款权";
 
 // More Monero links
 $getmonero = '<a class="text-white" href="https://www.getmonero.org/zh-cn/" hreflang="zh-cn" target="_blank" rel="external">官方网站</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">社区众筹系统 (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">门罗浏览器</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk播客</a>';
