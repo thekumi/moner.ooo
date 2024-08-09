@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Fetch updated exchange rates every 5 seconds
+  // Fetch updated exchange rates immediately, then every 5 seconds
+  fetchUpdatedExchangeRates();
   setInterval(fetchUpdatedExchangeRates, 5000);
 });
 
