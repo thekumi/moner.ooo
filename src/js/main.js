@@ -119,7 +119,7 @@ function fiatConvert(value) {
 
   if (exchangeRates[selectBox]) {
     let value = fiatAmount / exchangeRates[selectBox];
-    xmrValue.value = value.toFixed(selectBox == 'BTC' || selectBox == 'LTC' || selectBox == 'ETH' || selectBox == 'XAG' || selectBox == 'XAU' ? 8 : 2);
+    xmrValue.value = value.toFixed(8);
   }
 }
 
