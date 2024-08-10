@@ -14,6 +14,8 @@ console.log(tooltipList);
 
 let lastModifiedField = 'xmr';
 
+var exchangeRates = {};
+
 document.addEventListener('DOMContentLoaded', function () {
   const copyXMRBtn = document.getElementById('copyXMRBtn');
   const copyFiatBtn = document.getElementById('copyFiatBtn');

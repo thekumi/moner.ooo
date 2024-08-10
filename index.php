@@ -196,8 +196,8 @@ foreach (array_reverse($preferred_currencies) as $currency) {
 
                 <noscript>
                     <div class="alert alert-warning" role="alert">
-                        <p>Looks like you have JavaScript disabled. You can still use this tool, but you won't be able to use the &#128203; buttons to automatically copy the results to your clipboard.</p>
-                        <p>Use the &darr; button to convert XMR to fiat, or the &uarr; button to convert fiat to XMR.</p>
+                        Looks like you have JavaScript disabled. You can still use this tool, but you won't be able to use the &#128203; buttons to automatically copy the results to your clipboard.<br />
+                        Use the &darr; button to convert XMR to fiat, or the &uarr; button to convert fiat to XMR.
                     </div>
                 </noscript>
 
@@ -229,9 +229,6 @@ foreach (array_reverse($preferred_currencies) as $currency) {
         </div>
     </div>
 
-    <script>
-        var exchangeRates = <?php echo json_encode($exchangeRates); ?>;
-    </script>
     <script src="js/main.js"></script>
 </body>
 
