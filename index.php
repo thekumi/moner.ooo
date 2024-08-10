@@ -4,6 +4,10 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$parentUrl = dirname($currentUrl);
+
 // Get currency data from JSON
 $api_cg = json_decode(file_get_contents('coingecko.json'), true);
 
@@ -52,9 +56,22 @@ $lang = strtolower($lang);
 require_once "lang/{$lang}.php";
 
 $xmr_in = isset($_GET["in"]) ? strtoupper(htmlspecialchars($_GET["in"])) : 'EUR';
-$xmr_in_fiat = number_format($exchangeRates[$xmr_in], $xmr_in == 'BTC' || $xmr_in == 'LTC' || $xmr_in == 'ETH' || $xmr_in == 'XAG' || $xmr_in == 'XAU' ? 8 : 2);
+$xmr_amount = isset($_GET["xmr"]) ? floatval($_GET["xmr"]) : 1;
+$fiat_amount = isset($_GET["fiat"]) ? floatval($_GET["fiat"]) : '';
+$conversion_direction = isset($_GET["direction"]) ? intval($_GET["direction"]) : 0;
 
-$xmr_in_fiat = strtr($xmr_in_fiat, ",", " ");
+if ($conversion_direction == 0) {
+    $fiat_value = $xmr_amount * $exchangeRates[$xmr_in];
+    $xmr_value = $xmr_amount;
+} else {
+    $xmr_value = $fiat_amount / $exchangeRates[$xmr_in];
+    $fiat_value = $fiat_amount;
+}
+
+$fiat_value = number_format($fiat_value, ($xmr_in == 'BTC' || $xmr_in == 'LTC' || $xmr_in == 'ETH' || $xmr_in == 'XAG' || $xmr_in == 'XAU') ? 8 : 2);
+$xmr_value = number_format($xmr_value, 12);
+
+$fiat_value = strtr($fiat_value, ",", " ");
 
 // Order preferred currencies to the top
 foreach (array_reverse($preferred_currencies) as $currency) {
@@ -81,7 +98,7 @@ foreach (array_reverse($preferred_currencies) as $currency) {
 
     <meta property="og:title" content="<?php echo $page_title; ?>" />
     <meta property="og:description" content="<?php echo $meta_description; ?>" />
-    <meta property="og:image" content="img/mstile-310x150.png" />
+    <meta property="og:image" content="<?php echo $parentUrl; ?>/img/mstile-310x150.png" />
     <meta property="og:type" content="website" />
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
@@ -143,29 +160,39 @@ foreach (array_reverse($preferred_currencies) as $currency) {
                 </div>
                 <hr class="gold" />
 
-                <div class="input-group">
-                    <button id="copyXMRBtn" class="btn-outline-secondary input-group-text clipboard-copy" title="<?php echo $clipboard_copy_tooltip; ?>" data-toggle="tooltip" data-bs-html="true" data-placement="top">&#128203;</button>
-                    <input class="form-control" id="xmrInput" type="text" spellcheck="false" autocorrect="off" inputmode="numeric" aria-label="<?php echo $l_xmrInput; ?>" aria-describedby="basic-addon-xmr" value="1">
-                    <input class="input-group-text" id="basic-addon-xmr" type="text" value="XMR" aria-label="Monero" disabled>
-                </div>
+                <form method="get" action="">
+                    <div class="input-group mb-3">
+                        <button id="copyXMRBtn" class="btn-outline-secondary input-group-text clipboard-copy" title="<?php echo $clipboard_copy_tooltip; ?>" data-toggle="tooltip" data-bs-html="true" data-placement="top">&#128203;</button>
+                        <input class="form-control" id="xmrInput" name="xmr" type="text" spellcheck="false" autocorrect="off" inputmode="numeric" aria-label="<?php echo $l_xmrInput; ?>" aria-describedby="basic-addon-xmr" value="<?php echo $xmr_value; ?>">
+                        <input class="input-group-text" id="basic-addon-xmr" type="text" value="XMR" aria-label="Monero" disabled>
+                    </div>
 
-                <div class="equals-box">
-                    <span class="equals-text cursor-default">=</span>
-                </div>
+                    <div class="equals-box">
+                        <button id="convertXMRToFiat" type="submit" name="direction" value="0" class="btn btn-arrow">
+                            <span class="equals-text">&darr;</span>
+                        </button>
+                        <button type="button" class="btn btn-equals">
+                            <span class="equals-text cursor-default">=</span>
+                        </button>
+                        <button id="convertFiatToXMR" type="submit" name="direction" value="1" class="btn btn-arrow">
+                            <span class="equals-text">&uarr;</span>
+                        </button>
+                    </div>
 
-                <div class="fiatDiv input-group">
-                    <button id="copyFiatBtn" class="btn-outline-secondary input-group-text clipboard-copy" title="<?php echo $clipboard_copy_tooltip; ?>" data-toggle="tooltip" data-bs-html="true" data-placement="top">&#128203;</button>
-                    <input class="form-control" id="fiatInput" type="text" spellcheck="false" autocorrect="off" inputmode="numeric" aria-label="<?php echo $l_fiatInput; ?>" value="<?php echo $xmr_in_fiat; ?>">
-                    <select class="input-group-text cursor-pointer" id="selectBox" aria-label="<?php echo $l_fiatSelect; ?>">
-                        <?php
-                        foreach ($currencies as $currency) {
-                            $selected = $currency == $xmr_in ? 'selected' : '';
-                            $currencyName = isset(${"l_" . strtolower($currency)}) ? ${"l_" . strtolower($currency)} : $currency;
-                            echo "<option {$selected} value=\"{$currency}\">{$currencyName}</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
+                    <div class="fiatDiv input-group mb-3">
+                        <button id="copyFiatBtn" class="btn-outline-secondary input-group-text clipboard-copy" title="<?php echo $clipboard_copy_tooltip; ?>" data-toggle="tooltip" data-bs-html="true" data-placement="top">&#128203;</button>
+                        <input class="form-control" id="fiatInput" name="fiat" type="text" spellcheck="false" autocorrect="off" inputmode="numeric" aria-label="<?php echo $l_fiatInput; ?>" value="<?php echo $fiat_value; ?>">
+                        <select class="input-group-text cursor-pointer" id="selectBox" name="in" aria-label="<?php echo $l_fiatSelect; ?>">
+                            <?php
+                            foreach ($currencies as $currency) {
+                                $selected = $currency == $xmr_in ? 'selected' : '';
+                                $currencyName = isset(${"l_" . strtolower($currency)}) ? ${"l_" . strtolower($currency)} : $currency;
+                                echo "<option {$selected} value=\"{$currency}\">{$currencyName}</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </form>
 
                 <hr class="gold" />
                 <small class="cursor-default text-white text-info" lang="<?php echo $lang_meta; ?>">
@@ -199,7 +226,6 @@ foreach (array_reverse($preferred_currencies) as $currency) {
         var exchangeRates = <?php echo json_encode($exchangeRates); ?>;
     </script>
     <script src="js/main.js"></script>
-
 </body>
 
 </html>

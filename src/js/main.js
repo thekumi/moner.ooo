@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const xmrInput = document.getElementById('xmrInput');
   const fiatInput = document.getElementById('fiatInput');
   const selectBox = document.getElementById('selectBox');
+  const convertXMRToFiatBtn = document.getElementById('convertXMRToFiat');
+  const convertFiatToXMRBtn = document.getElementById('convertFiatToXMR');
 
   // Add event listeners for the copy buttons
   copyXMRBtn.addEventListener('click', copyToClipBoardXMR);
@@ -60,6 +62,17 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       fiatConvert(selectBox.value)
     }
+  });
+
+  // Add event listeners for the conversion buttons
+  convertXMRToFiatBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    xmrConvert();
+  });
+
+  convertFiatToXMRBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    fiatConvert();
   });
 
   // Fetch updated exchange rates immediately, then every 5 seconds

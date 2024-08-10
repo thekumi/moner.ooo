@@ -53,6 +53,31 @@ input.form-control {
     font-size: 42px;
 }
 
+.btn-arrow {
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 38px !important;
+    color: white;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn-arrow:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+.btn-equals {
+    font-size: 38px !important;
+    color: white;
+    padding: 0;
+    cursor: default;
+}
+
+.btn-equals:hover {
+    color: black;
+}
+
 .equals-text {
     vertical-align: super;
 }
