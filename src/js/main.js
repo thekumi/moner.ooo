@@ -64,16 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Add event listeners for the conversion buttons
-  convertXMRToFiatBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    xmrConvert();
-  });
-
-  convertFiatToXMRBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    fiatConvert();
-  });
+  // Hide the conversion buttons if JavaScript is enabled
+  convertXMRToFiatBtn.style.display = 'none';
+  convertFiatToXMRBtn.style.display = 'none';
 
   // Fetch updated exchange rates immediately, then every 5 seconds
   fetchUpdatedExchangeRates();
