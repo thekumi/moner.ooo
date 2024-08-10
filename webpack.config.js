@@ -31,7 +31,7 @@ module.exports = {
       paths: glob.sync([
         path.join(__dirname, 'index.php')
       ]),
-      safelist: ['tooltip', 'fade', 'show', 'bs-tooltip-top', 'tooltip-inner', 'tooltip-arrow', 'btn-equals', 'btn-arrow']
+      safelist: ['tooltip', 'fade', 'show', 'bs-tooltip-top', 'tooltip-inner', 'tooltip-arrow', 'btn-equals', 'btn-arrow', 'alert', 'alert-warning']
     })
   ]
 };

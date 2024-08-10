@@ -167,7 +167,7 @@ foreach (array_reverse($preferred_currencies) as $currency) {
                         <input class="input-group-text" id="basic-addon-xmr" type="text" value="XMR" aria-label="Monero" disabled>
                     </div>
 
-                    <div class="equals-box">
+                    <div class="equals-box mb-3">
                         <button id="convertXMRToFiat" type="submit" name="direction" value="0" class="btn btn-arrow">
                             <span class="equals-text">&darr;</span>
                         </button>
@@ -193,6 +193,13 @@ foreach (array_reverse($preferred_currencies) as $currency) {
                         </select>
                     </div>
                 </form>
+
+                <noscript>
+                    <div class="alert alert-warning" role="alert">
+                        <p>Looks like you have JavaScript disabled. You can still use this tool, but you won't be able to use the &#128203; buttons to automatically copy the results to your clipboard.</p>
+                        <p>Use the &darr; button to convert XMR to fiat, or the &uarr; button to convert fiat to XMR.</p>
+                    </div>
+                </noscript>
 
                 <hr class="gold" />
                 <small class="cursor-default text-white text-info" lang="<?php echo $lang_meta; ?>">
