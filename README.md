@@ -39,13 +39,13 @@ This is a fork of the original project by [nice42q](https://github.com/nice42q/m
 To convert XMR to a fiat currency, simply visit:
 
 ```
-https://calc.revuo-xmr.com/?in=USD
+https://monerooo.private.coffee/?in=USD
 ```
 
 Replace `USD` with your preferred currency code. You can also specify the amount of XMR to convert:
 
 ```
-https://calc.revuo-xmr.com/?in=USD&xmr=1
+https://monerooo.private.coffee/?in=USD&xmr=1
 ```
 
 The `xmr` parameter specifies the amount of XMR to convert.
@@ -55,7 +55,7 @@ The `xmr` parameter specifies the amount of XMR to convert.
 To convert a fiat currency to XMR, visit:
 
 ```
-https://calc.revuo-xmr.com/?in=USD&fiat=1&direction=1
+https://monerooo.private.coffee/?in=USD&fiat=1&direction=1
 ```
 
 The `fiat` parameter specifies the amount of fiat currency to convert. The `direction` parameter is set to `1` to indicate conversion from fiat to XMR.
