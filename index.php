@@ -26,7 +26,7 @@ if (file_exists('config.php')) {
 $display_servers_guru = isset($config['servers_guru']) && $config['servers_guru'] === true;
 $attribution = isset($config['attribution']) ? $config['attribution'] : '';
 $preferred_currencies = isset($config['preferred_currencies']) ? $config['preferred_currencies'] : [];
-$github_url = isset($config['github_url']) ? $config['github_url'] : 'https://github.com/rottenwheel/moner.ooo/';
+$github_url = isset($config['github_url']) ? $config['github_url'] : 'https://git.private.coffee/kumi/moner.ooo/';
 
 // Extract the keys
 $currencies = array_map('strtoupper', array_keys($api_cg));
