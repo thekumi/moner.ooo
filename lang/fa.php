@@ -2,88 +2,88 @@
 // For the HTML meta specification, e.g. <!DOCTYPE html><html lang="en">
 $lang_meta = "fa"; // https://www.w3schools.com/tags/ref_language_codes.asp
 
-$page_title = "XMR conversion to EUR/BTC/CHF/USD and many more"; // The browser tab title or search engine title
-$meta_description = "The Monero live exchange rate in many different currencies, free for everyone."; // Search engine description / text
-$meta_keywords = "Monero, XMR, fiat, value, rate, live, exchange, conversion"; // Search engine keywords
+$page_title = "تبدیل XMR به EUR/BTC/CHF/USD و بسیاری دیگر"; // The browser tab title or search engine title
+$meta_description = "نرخ تبادل زنده مونرو در ارزهای مختلف، رایگان برای همه."; // Search engine description / text
+$meta_keywords = "مونرو, XMR, ارز فیات, ارزش, نرخ, زنده, تبادل, تبدیل"; // Search engine keywords
 
-$title_h1 = "conversion to"; // ↓ XMR [...] ↓
+$title_h1 = "تبدیل به"; // ↓ XMR [...] ↓
 
 $moneroooTable = "Service provided by <a href='https://moner.ooo/'>Moner.ooo</a>, Data provided by <a href='https://www.coingecko.com/en/coins/monero' hreflang='en' rel='external'>CoinGecko</a>";
 
 // Info Text
-$info = "The exchange rates on this site are for information purposes only. They are not guaranteed to be accurate, and are subject to change without notice. The exchange rates are updated approximately once per minute. Last at <u title='Hours:Minutes:Seconds (hh:mm:ss)'>".$time."</u>, Europe/Berlin. Data provided by <a class='text-white' href='https://www.coingecko.com/en/coins/monero' hreflang='en' rel='external' target='_blank'>CoinGecko</a>.<br/><a target='_blank' href='https://kuno.anne.media/donate/onml/' rel='external' hreflang='en'><img loading='lazy' src='./img/kuno-monero-26x26.png' width='17' height='17' alt='Kuno - Moner.ooo donation page'></a>&nbsp;<a target='_blank' href='https://kuno.anne.media/' class='text-white' rel='external' hreflang='en'>Kuno – Fundraise with Monero</a> | <a class='text-white' href='{$github_url}' hreflang='en' rel='external' target='_blank'>GitHub</a>";
-$servers_guru = " | <a style='text-decoration:none; font-weight:bold;' class='text-white' href='https://servers.guru/' hreflang='en' rel='external' target='_blank'>Webhosting provided by<img loading='lazy' src='./img/servers-guru.svg' height='19' alt='Servers Guru' title='Servers Guru' /></a>";
+$info = "نرخ‌های تبادل در این سایت فقط برای اطلاع‌رسانی هستند. آن‌ها تضمین نمی‌شوند که دقیق باشند و ممکن است بدون اطلاع قبلی تغییر کنند. نرخ‌های تبادل تقریباً هر دقیقه یکبار به‌روز می‌شوند. آخرین به‌روزرسانی در <u title='ساعت:دقیقه:ثانیه (hh:mm:ss)'>".$time."</u>، Europe/Berlin. داده‌ها ارائه شده توسط <a class='text-white' href='https://www.coingecko.com/en/coins/monero' hreflang='en' rel='external' target='_blank'>CoinGecko</a>.<br/><a target='_blank' href='https://kuno.anne.media/donate/onml/' rel='external' hreflang='en'><img loading='lazy' src='./img/kuno-monero-26x26.png' width='17' height='17' alt='Kuno - Moner.ooo donation page'></a>&nbsp;<a target='_blank' href='https://kuno.anne.media/' class='text-white' rel='external' hreflang='en'>Kuno – جمع‌آوری کمک مالی با مونرو</a> | <a class='text-white' href='{$github_url}' hreflang='en' rel='external' target='_blank'>GitHub</a>";
+$servers_guru = " | <a style='text-decoration:none; font-weight:bold;' class='text-white' href='https://servers.guru/' hreflang='en' rel='external' target='_blank'>میزبانی وب ارائه شده توسط<img loading='lazy' src='./img/servers-guru.svg' height='19' alt='Servers Guru' title='Servers Guru' /></a>";
 
-$clipboard_copy_tooltip = "Copy to clipboard";
+$clipboard_copy_tooltip = "کپی به کلیپ‌بورد";
 
 $l_fiatSelect = "Currency choice";
 $l_fiatInput = "Fiat value input field";
 $l_xmrInput = "Monero value input field";
 
 // Tooltip Titel
-$l_eur = "Euro";
-$l_btc = "Bitcoin";
-$l_chf = "Swiss Franc";
-$l_usd = "US Dollar";
-$l_ltc = "Litecoin";
-$l_gbp = "Pound sterling";
-$l_rub = "Russian Ruble";
-$l_jpy = "Yen";
-$l_try = "Turkish Lira";
-$l_cad = "Canadian Dollar";
-$l_aud = "Australian Dollar";
-$l_hkd = "Hong Kong Dollar";
-$l_sgd = "Singapore Dollar";
-$l_pln = "Złoty";
-$l_zar = "South African Rand";
-$l_inr = "Indian Rupee";
-$l_aed = "UAE Dirham";
-$l_eth = "Ethereum";
-$l_uah = "Hryvnia"; 
-$l_krw = "South Korean won";
-$l_brl = "Brazilian Real"; 
-$l_myr = "Malaysian Ringgit"; 
-$l_cny = "Renminbi"; 
-$l_xag = "Silver (troy ounce)";
-$l_xau = "Gold (troy ounce)";
-$l_vnd = "Vietnamese dong";
-$l_vef = "Venezuelan bolívar";
-$l_thb = "Baht";
-$l_sar = "Saudi Riyal";
-$l_sek = "Swedish Krona";
-$l_pkr = "Pakistani Rupee";
-$l_nzd = "New Zealand Dollar";
-$l_php = "Philippine Peso";
-$l_nok = "Norwegian Krone";
-$l_lkr = "Sri Lankan Rupee";
-$l_mmk = "Myanmar Kyat";
-$l_huf = "Hungarian Forint";
-$l_ils = "Israeli New Shekel";
-$l_kwd = "Kuwaiti Dinar";
-$l_ngn = "Nigerian Naira";
-$l_idr = "Indonesian Rupiah";
-$l_twd = "New Taiwan Dollar";
-$l_ars = "Argentine Peso";
-$l_bdt = "Bangladeshi Taka";
-$l_bhd = "Bahraini Dinar"; 
-$l_bmd = "Bermudan Dollar"; 
-$l_czk = "Czech Koruna";
-$l_dkk = "Danish Krone";
-$l_clp = "Chilean Peso";
-$l_mxn = "Mexican Peso";
-$l_bch = "Bitcoin Cash";
-$l_bnb = "Binance Coin";
+$l_eur = "یورو";
+$l_btc = "بیت‌کوین";
+$l_chf = "فرانک سوئیس";
+$l_usd = "دلار آمریکا";
+$l_ltc = "لایت‌کوین";
+$l_gbp = "پوند استرلینگ";
+$l_rub = "روبل روسیه";
+$l_jpy = "ین";
+$l_try = "لیر ترکیه";
+$l_cad = "دلار کانادا";
+$l_aud = "دلار استرالیا";
+$l_hkd = "دلار هنگ‌کنگ";
+$l_sgd = "دلار سنگاپور";
+$l_pln = "زلوتی";
+$l_zar = "راند آفریقای جنوبی";
+$l_inr = "روپیه هند";
+$l_aed = "درهم امارات";
+$l_eth = "اتریوم";
+$l_uah = "هریونیا";
+$l_krw = "وون کره جنوبی";
+$l_brl = "رئال برزیل";
+$l_myr = "رینگیت مالزی";
+$l_cny = "رنمینبی";
+$l_xag = "نقره (اونس تروا)";
+$l_xau = "طلا (اونس تروا)";
+$l_vnd = "دونگ ویتنام";
+$l_vef = "بولیوار ونزوئلا";
+$l_thb = "بات تایلند";
+$l_sar = "ریال سعودی";
+$l_sek = "کرون سوئد";
+$l_pkr = "روپیه پاکستان";
+$l_nzd = "دلار نیوزیلند";
+$l_php = "پزو فیلیپین";
+$l_nok = "کرون نروژ";
+$l_lkr = "روپیه سریلانکا";
+$l_mmk = "کیات میانمار";
+$l_huf = "فورینت مجارستان";
+$l_ils = "شکل جدید اسرائیل";
+$l_kwd = "دینار کویت";
+$l_ngn = "نایرا نیجریه";
+$l_idr = "روپیه اندونزی";
+$l_twd = "دلار جدید تایوان";
+$l_ars = "پزو آرژانتین";
+$l_bdt = "تاکا بنگلادش";
+$l_bhd = "دینار بحرین";
+$l_bmd = "دلار برمودا";
+$l_czk = "کرونای چک";
+$l_dkk = "کرون دانمارک";
+$l_clp = "پزو شیلی";
+$l_mxn = "پزو مکزیک";
+$l_bch = "بیت‌کوین کش";
+$l_bnb = "بایننس کوین";
 $l_eos = "EOS.IO";
-$l_xrp = "Ripple";
-$l_xlm = "Stellar Lumens";
-$l_link = "Chainlink";
-$l_dot = "Polkadot";
-$l_yfi = "Yearn.Finance";
-$l_gel = "Georgian Lari";
-$l_xdr = "Special Drawing Rights";
+$l_xrp = "ریپل";
+$l_xlm = "استلار لومنس";
+$l_link = "چین‌لینک";
+$l_dot = "پولکادات";
+$l_yfi = "یرن.فایننس";
+$l_gel = "لاری گرجستان";
+$l_xdr = "حقوق برداشت ویژه";
 
 // More Monero links
-$getmonero = '<a class="text-white" href="https://www.getmonero.org/" hreflang="en" target="_blank" rel="external">Official website</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">Community Crowdfunding System (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">Monero Observer</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk</a>';
-$countrymonero = ' | <a class="text-white" href="https://t.me/monero" hreflang="en" target="_blank" rel="external">Telegram - Monero XMR</a>';
+$getmonero = '<a class="text-white" href="https://www.getmonero.org/" hreflang="en" target="_blank" rel="external">وبسایت رسمی</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">سیستم تأمین مالی جمعی جامعه (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">ناظر مونرو</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">گفتگوی مونرو</a>';
+$countrymonero = ' | <a class="text-white" href="https://t.me/monero" hreflang="en" target="_blank" rel="external">تلگرام - مونرو XMR</a>';
 
 ?>
