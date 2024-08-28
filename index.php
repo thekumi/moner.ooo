@@ -9,6 +9,12 @@ $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $parentUrl = dirname($currentUrl);
 
 // Get currency data from JSON
+if (!file_exists('coingecko.json')) {
+    // Special case: First run.
+    exec('php coingecko.php');
+    sleep(1);
+}
+
 $api_cg = json_decode(file_get_contents('coingecko.json'), true);
 
 // Configuration file
