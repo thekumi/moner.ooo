@@ -43,10 +43,8 @@ foreach ($currencies as $currency) {
 }
 
 // Get the browser language
-$lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : "en";
-if ($lang == 'zh' || $lang == 'pt') {
-    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 5);
-}
+$lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : "en";
+$lang = strtolower($lang);
 
 // Scan the lang/ directory for available language files
 $langFiles = glob('lang/*.php');
@@ -56,10 +54,33 @@ foreach ($langFiles as $file) {
     $acceptLang[] = strtolower($langCode);
 }
 
-// Check if the browser language is available, otherwise use English
-$lang = in_array($lang, $acceptLang) ? $lang : 'en';
-$lang = strtolower($lang);
+// Aliases for different Chinese variants
+$aliases = [
+    'zh' => 'zh-hans',
+    'zh-hk' => 'zh-hant',
+    'zh-tw' => 'zh-hant',
+    'zh-cn' => 'zh-hans',
+    'zh-sg' => 'zh-hans',
+    'zh-mo' => 'zh-hant',
+];
+
+if (isset($aliases[$lang])) {
+    $lang = $aliases[$lang];
+}
+
+// Check if the browser language is supported
+if (!in_array($lang, $acceptLang)) {
+    // Try again without the region code (if present, e.g. en-US -> en)
+    $lang = explode('-', $lang)[0];
+    if (!in_array($lang, $acceptLang)) {
+        // Default to English if the browser language is not supported
+        $lang = 'en';
+    }
+}
+
 require_once "lang/{$lang}.php";
+
+// Calculation through GET parameters
 
 $xmr_in = isset($_GET["in"]) ? strtoupper(htmlspecialchars($_GET["in"])) : 'EUR';
 $xmr_amount = isset($_GET["xmr"]) ? floatval($_GET["xmr"]) : 1;

@@ -1,6 +1,6 @@
 <?php // Translator： Winslow SorenEricMent(逸雩)
 // For the HTML meta specification, e.g. <!DOCTYPE html><html lang="en">
-$lang_meta = "zh"; // https://www.w3schools.com/tags/ref_language_codes.asp
+$lang_meta = "zh-Hans"; // https://www.w3schools.com/tags/ref_language_codes.asp
 
 $page_title = "门罗币与欧元/BTC/CHF/美元等币种汇率"; // The browser tab title or search engine title
 $meta_description = "门罗币实时多币种汇率，免费提供。"; // Search engine description / text
