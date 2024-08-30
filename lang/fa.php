@@ -1,6 +1,6 @@
 <?php
 // For the HTML meta specification, e.g. <!DOCTYPE html><html lang="en">
-$lang_meta = "fa"; // https://www.w3schools.com/tags/ref_language_codes.asp
+$lang_meta = "fa\" dir=\"rtl"; // https://www.w3schools.com/tags/ref_language_codes.asp
 
 $page_title = "تبدیل XMR به EUR/BTC/CHF/USD و بسیاری دیگر"; // The browser tab title or search engine title
 $meta_description = "نرخ تبادل زنده مونرو در ارزهای مختلف، رایگان برای همه."; // Search engine description / text
@@ -79,7 +79,7 @@ $l_gel = "لاری گرجستان";
 $l_xdr = "حقوق برداشت ویژه";
 
 // More Monero links
-$getmonero = '<a class="text-white" href="https://www.getmonero.org/" hreflang="en" target="_blank" rel="external">وبسایت رسمی</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">سیستم تأمین مالی جمعی جامعه (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">ناظر مونرو</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">گفتگوی مونرو</a>';
-$countrymonero = ' | <a class="text-white" href="https://t.me/monero" hreflang="en" target="_blank" rel="external">تلگرام - مونرو XMR</a>';
+$getmonero = '<a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">Monero Observer</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">Community Crowdfunding System (CCS)</a> | <a class="text-white" href="https://www.getmonero.org/" hreflang="en" target="_blank" rel="external">Official website</a>';
+$countrymonero = '';
 
 ?>
