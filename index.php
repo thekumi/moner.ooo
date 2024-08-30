@@ -58,29 +58,20 @@ $aliases = [
     'zh-mo' => 'zh-hant',
 ];
 
-// Load the language files
-// Take English as a base
-
-require_once 'lang/en.php';
-
-// Get the browser language code (e.g. 'de' for 'de-DE')
-// Load that language file if available
-
-$language_code = explode('-', $lang)[0];
-
-if (file_exists('lang/' . $language_code . '.php')) {
-    require_once 'lang/' . $language_code . '.php';
+if (isset($aliases[$lang])) {
+    $lang = $aliases[$lang];
 }
 
-// If a region-specific language file is available, load that one
+// Load the language files
+// Take English as a base, then overwrite with the browser language
+// E.g.: First load en.php, then de.php, then de-at.php
 
-if ($language_code != $lang) {
-    if (isset($aliases[$language_code])) {
-        $lang = $aliases[$language_code];
-    }
+$language_code = explode('-', $lang)[0];
+$language_files = ["en", $language_code, $lang];
 
-    if (file_exists('lang/' . $lang . '.php')) {
-        require_once 'lang/' . $lang . '.php';
+foreach ($language_files as $language_file) {
+    if (file_exists('lang/' . $language_file . '.php')) {
+        require_once 'lang/' . $language_file . '.php';
     }
 }
 
