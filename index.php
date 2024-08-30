@@ -166,7 +166,7 @@ foreach (array_reverse($preferred_currencies) as $currency) {
                                     echo "<tr>";
                                     foreach ($chunk as $currency) {
                                         $currencyName = isset(${"l_" . strtolower($currency)}) ? ${"l_" . strtolower($currency)} : $currency;
-                                        echo "<td><a href=\"/?in={$currency}\" class=\"btn btn-light\" title=\"{$currencyName}\" data-toggle=\"tooltip\" data-bs-html=\"true\" data-placement=\"top\">{$currency}</a></td>";
+                                        echo "<td><a href=\"/?in={$currency}\" class=\"btn btn-light fiat-btn\" title=\"{$currencyName}\" data-toggle=\"tooltip\" data-bs-html=\"true\" data-placement=\"top\">{$currency}</a></td>";
                                     }
                                     echo "</tr>";
                                     echo "<tr style=\"display:none;\">";

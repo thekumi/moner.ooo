@@ -24,6 +24,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const selectBox = document.getElementById('selectBox');
   const convertXMRToFiatBtn = document.getElementById('convertXMRToFiat');
   const convertFiatToXMRBtn = document.getElementById('convertFiatToXMR');
+  const fiatButtons = document.querySelectorAll('.fiat-btn');
+
+  // Add event listeners for the currency buttons
+  fiatButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      selectBox.value = button.textContent;
+      if (lastModifiedField === 'xmr') {
+        xmrConvert();
+      } else {
+        fiatConvert();
+      }
+      history.pushState(null, '', `?in=${button.textContent}`);
+    });
+  });
 
   // Add event listeners for the copy buttons
   copyXMRBtn.addEventListener('click', copyToClipBoardXMR);
