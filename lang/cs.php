@@ -1,4 +1,3 @@
-```php
 <?php
 // For the HTML meta specification, e.g. <!DOCTYPE html><html lang="en">
 $lang_meta = "cs"; // https://www.w3schools.com/tags/ref_language_codes.asp
@@ -16,10 +15,6 @@ $info = "Směnné kurzy na této stránce slouží pouze pro informační účel
 $servers_guru = " | <a style='text-decoration:none; font-weight:bold;' class='text-white' href='https://servers.guru/' hreflang='en' rel='external' target='_blank'>Webhosting poskytován<img loading='lazy' src='./img/servers-guru.svg' height='19' alt='Servers Guru' title='Servers Guru' /></a>";
 
 $clipboard_copy_tooltip = "Kopírovat do schránky";
-
-$l_fiatSelect = "Currency choice";
-$l_fiatInput = "Fiat value input field";
-$l_xmrInput = "Monero value input field";
 
 // Tooltip Titel
 $l_eur = "Euro";
@@ -88,4 +83,3 @@ $getmonero = '<a class="text-white" href="https://www.getmonero.org/" hreflang="
 $countrymonero = ' | <a class="text-white" href="https://t.me/monero" hreflang="en" target="_blank" rel="external">Telegram - Monero XMR</a>';
 
 ?>
-```

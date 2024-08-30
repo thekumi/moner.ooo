@@ -1,6 +1,6 @@
 <?php
 // For the HTML meta specification, e.g. <!DOCTYPE html><html lang="en">
-$lang_meta = "pt"; // https://www.w3schools.com/tags/ref_language_codes.asp
+$lang_meta = "pt-BR"; // https://www.w3schools.com/tags/ref_language_codes.asp
 
 $page_title = "Converter XMR para BRL/EUR/BTC/USD e muito mais"; // The browser tab title or search engine title
 $meta_description = "A cotação em tempo real de Monero em várias moedas, de graça a todos."; // Search engine description / text

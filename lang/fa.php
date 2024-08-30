@@ -16,10 +16,6 @@ $servers_guru = " | <a style='text-decoration:none; font-weight:bold;' class='te
 
 $clipboard_copy_tooltip = "کپی به کلیپ‌بورد";
 
-$l_fiatSelect = "Currency choice";
-$l_fiatInput = "Fiat value input field";
-$l_xmrInput = "Monero value input field";
-
 // Tooltip Titel
 $l_eur = "یورو";
 $l_btc = "بیت‌کوین";

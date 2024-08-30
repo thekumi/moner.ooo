@@ -16,10 +16,6 @@ $servers_guru = " | <a style='text-decoration:none; font-weight:bold;' class='te
 
 $clipboard_copy_tooltip = "Copia negli appunti";
 
-$l_fiatSelect = "Currency choice";
-$l_fiatInput = "Fiat value input field";
-$l_xmrInput = "Monero value input field";
-
 // Tooltip Titel
 $l_eur = "Euro";
 $l_btc = "Bitcoin";

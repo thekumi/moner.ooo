@@ -14,12 +14,6 @@ $moneroooTable = "Service provided by <a href='https://moner.ooo/'>Moner.ooo</a>
 $info = "本站提供的汇率仅供参考。其精确程度不被保证，且可能在您不注意的情况下发生变更。汇率大约每分钟更新一次。最近一次在 Europe/Berlin 时间 <u title='Hours:Minutes:Seconds (hh:mm:ss)'>".$time."</u> 。数据由 <a class='text-white' href='https://www.coingecko.com/zh/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81/%E9%97%A8%E7%BD%97%E5%B8%81' hreflang='zh' rel='external' target='_blank'>CoinGecko</a>。<br/><a target='_blank' href='https://kuno.anne.media/donate/onml/' rel='external' hreflang='en'><img loading='lazy' src='./img/kuno-monero-26x26.png' width='17' height='17' alt='Kuno - Moner.ooo donation page'></a>&nbsp;<a target='_blank' href='https://kuno.anne.media/' class='text-white' rel='external' hreflang='en'>Kuno – Fundraise with Monero</a> | <a class='text-white' href='{$github_url}' hreflang='en' rel='external' target='_blank'>GitHub</a>";
 $servers_guru = " | <a style='text-decoration:none; font-weight:bold;' class='text-white' href='https://servers.guru/' hreflang='en' rel='external' target='_blank'>Webhosting provided by<img loading='lazy' src='./img/servers-guru.svg' height='19' alt='Servers Guru' title='Servers Guru' /></a>";
 
-$clipboard_copy_tooltip = "Copy to clipboard";
-
-$l_fiatSelect = "Currency choice";
-$l_fiatInput = "Fiat value input field";
-$l_xmrInput = "Monero value input field";
-
 // Tooltip Titel
 $l_eur = "欧元";
 $l_btc = "比特币";

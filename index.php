@@ -42,17 +42,11 @@ foreach ($currencies as $currency) {
     $exchangeRates[$currency] = $api_cg[strtolower($currency)]['lastValue'];
 }
 
-// Get the browser language
+// Get the primary language from the browser
 $lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : "en";
+$lang = explode(",", $lang)[0];
+$lang = explode(";", $lang)[0];
 $lang = strtolower($lang);
-
-// Scan the lang/ directory for available language files
-$langFiles = glob('lang/*.php');
-$acceptLang = [];
-foreach ($langFiles as $file) {
-    $langCode = basename($file, '.php');
-    $acceptLang[] = strtolower($langCode);
-}
 
 // Aliases for different Chinese variants
 $aliases = [
@@ -64,21 +58,31 @@ $aliases = [
     'zh-mo' => 'zh-hant',
 ];
 
-if (isset($aliases[$lang])) {
-    $lang = $aliases[$lang];
+// Load the language files
+// Take English as a base
+
+require_once 'lang/en.php';
+
+// Get the browser language code (e.g. 'de' for 'de-DE')
+// Load that language file if available
+
+$language_code = explode('-', $lang)[0];
+
+if (file_exists('lang/' . $language_code . '.php')) {
+    require_once 'lang/' . $language_code . '.php';
 }
 
-// Check if the browser language is supported
-if (!in_array($lang, $acceptLang)) {
-    // Try again without the region code (if present, e.g. en-US -> en)
-    $lang = explode('-', $lang)[0];
-    if (!in_array($lang, $acceptLang)) {
-        // Default to English if the browser language is not supported
-        $lang = 'en';
+// If a region-specific language file is available, load that one
+
+if ($language_code != $lang) {
+    if (isset($aliases[$language_code])) {
+        $lang = $aliases[$language_code];
+    }
+
+    if (file_exists('lang/' . $lang . '.php')) {
+        require_once 'lang/' . $lang . '.php';
     }
 }
-
-require_once "lang/{$lang}.php";
 
 // Calculation through GET parameters
 
