@@ -25,12 +25,14 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '../css/main.css'
+      filename: '../css/[name].css'
     }),
     new PurgeCSSPlugin({
       paths: glob.sync([
-        path.join(__dirname, 'index.php')
+        path.join(__dirname, 'index.php'),
+        path.join(__dirname, 'src/js/**/*.js')
       ]),
+      only: ['bootstrap'],
       safelist: ['tooltip', 'fade', 'show', 'bs-tooltip-top', 'tooltip-inner', 'tooltip-arrow', 'btn-equals', 'btn-arrow', 'alert', 'alert-warning']
     })
   ]
