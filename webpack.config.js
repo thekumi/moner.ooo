@@ -1,15 +1,17 @@
-'use strict'
+'use strict';
 
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const glob = require('glob-all');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/js/main.js',
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'js'),
   },
   module: {
@@ -35,5 +37,18 @@ module.exports = {
       only: ['bootstrap'],
       safelist: ['tooltip', 'fade', 'show', 'bs-tooltip-top', 'tooltip-inner', 'tooltip-arrow', 'btn-equals', 'btn-arrow', 'alert', 'alert-warning']
     })
-  ]
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+      new CssMinimizerPlugin(),
+    ],
+  }
 };
