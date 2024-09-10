@@ -117,6 +117,18 @@ return [
 ];
 ```
 
+Create a `secrets.php` file in the root directory to store CoinGecko API keys. Example:
+
+```php
+<?php
+return [
+	'coingecko_api_key' => 'CG-xxxx',
+	'coingecko_key_is_demo' => true,
+];
+```
+
+**Note:** The `secrets.dist.php` file should not be accessible from the web server.
+
 ### Fetching Exchange Rates
 
 Exchange rates are fetched from the CoinGecko API. The `coingecko.php` file handles the API requests and attempts to update exchange rates every 5 seconds. Due to the rate limits of the CoinGecko API, actual update intervals may vary and are closer to 60 seconds.
