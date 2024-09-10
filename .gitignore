@@ -7,6 +7,10 @@
 # Coingecko export data
 /coingecko.json
 /coingecko-original.json
+/coingecko-currencies.json
+
+# Secret files
+/secrets.php
 
 # Compiled files
 /js/
