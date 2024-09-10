@@ -14,40 +14,40 @@ $currentTime = time();
 
 // Check if five seconds have passed since the last update
 if (($currentTime - $previousData['time']) >= 5) {
-	// Fetch the available currencies from CoinGecko API
-	$availableCurrenciesApi = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies";
+    // Fetch the available currencies from CoinGecko API
+    $availableCurrenciesApi = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies";
 
-	$currenciesCh = curl_init($availableCurrenciesApi);
-	curl_setopt($currenciesCh, CURLOPT_RETURNTRANSFER, true);
-	$availableCurrenciesJson = curl_exec($currenciesCh);
+    $currenciesCh = curl_init($availableCurrenciesApi);
+    curl_setopt($currenciesCh, CURLOPT_RETURNTRANSFER, true);
+    $availableCurrenciesJson = curl_exec($currenciesCh);
 
-	$currenciesHttpCode = curl_getinfo($currenciesCh, CURLINFO_HTTP_CODE);
+    $currenciesHttpCode = curl_getinfo($currenciesCh, CURLINFO_HTTP_CODE);
 
-	curl_close($currenciesCh);
+    curl_close($currenciesCh);
 
-	if ($currenciesHttpCode == 200) {
-		$availableCurrencies = json_decode($availableCurrenciesJson, true);
-	} else {
-		$availableCurrencies = array_keys($previousData);
-		unset($availableCurrencies[array_search('time', $availableCurrencies)]);
-	}
+    if ($currenciesHttpCode == 200) {
+        $availableCurrencies = json_decode($availableCurrenciesJson, true);
+    } else {
+        $availableCurrencies = array_keys($previousData);
+        unset($availableCurrencies[array_search('time', $availableCurrencies)]);
+    }
 
-	// Remove excluded currencies
-	$availableCurrencies = array_diff($availableCurrencies, $excludedCurrencies);
+    // Remove excluded currencies
+    $availableCurrencies = array_diff($availableCurrencies, $excludedCurrencies);
 
-	$currencies = array_map('strtoupper', $availableCurrencies);
+    $currencies = array_map('strtoupper', $availableCurrencies);
 
-	// Fetch the latest data from CoinGecko API
-	$apiUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=' . implode('%2C', array_map('strtolower', $currencies)) . '&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true';
+    // Fetch the latest data from CoinGecko API
+    $apiUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=' . implode('%2C', array_map('strtolower', $currencies)) . '&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true';
 
-	$ch = curl_init($apiUrl);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$json = curl_exec($ch);
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $json = curl_exec($ch);
 
-	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	curl_close($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
     
-	// If the request worked and was not rate-limited
+    // If the request worked and was not rate-limited
     if ($httpCode == 200) {
         // Decode the fetched data
         $fetchedData = json_decode($json, true);
