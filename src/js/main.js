@@ -1,22 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-
 import '../css/custom.css';
 
-import Tooltip from "bootstrap/js/dist/tooltip";
-var tooltipTriggerList = [].slice.call(
-  document.querySelectorAll('[data-toggle="tooltip"]')
-);
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new Tooltip(tooltipTriggerEl, { placement: "top" });
-});
+import Tooltip from 'bootstrap/js/dist/tooltip';
+
+const tooltipTriggerList = Array.from(document.querySelectorAll('[data-toggle="tooltip"]'));
+const tooltipList = tooltipTriggerList.map(tooltipTriggerEl => new Tooltip(tooltipTriggerEl, { placement: 'top' }));
 console.log(tooltipList);
 
 let lastModifiedField = 'xmr';
+const exchangeRates = {};
 
-var exchangeRates = {};
+const runConvert = () =>
+  lastModifiedField === 'xmr' ? xmrConvert() : fiatConvert();
 
-document.addEventListener('DOMContentLoaded', function () {
+
+
+document.addEventListener('DOMContentLoaded', () => {
   const copyXMRBtn = document.getElementById('copyXMRBtn');
   const copyFiatBtn = document.getElementById('copyFiatBtn');
   const xmrInput = document.getElementById('xmrInput');
@@ -31,66 +31,50 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       selectBox.value = button.textContent;
-      if (lastModifiedField === 'xmr') {
-        xmrConvert();
-      } else {
-        fiatConvert();
-      }
+      runConvert();
       history.pushState(null, '', `?in=${button.textContent}`);
     });
   });
 
   // Add event listeners for the copy buttons
-  copyXMRBtn.addEventListener('click', copyToClipBoardXMR);
-  copyFiatBtn.addEventListener('click', copyToClipBoardFiat);
+  copyXMRBtn.addEventListener('click', copyToClipboardXMR);
+  copyFiatBtn.addEventListener('click', copyToClipboardFiat);
 
   // Add event listeners for the XMR input field
-  xmrInput.addEventListener('change', () => xmrConvert(xmrInput.value));
+  xmrInput.addEventListener('change', xmrConvert);
   xmrInput.addEventListener('keyup', () => {
-    xmrInput.value = xmrInput.value.replace(/[^\.^,\d]/g, '');
-    xmrInput.value = xmrInput.value.replace(/\,/, '.');
+    xmrInput.value = xmrInput.value.replace(/[^\.^,\d]/g, '').replace(/\,/, '.');
     if (xmrInput.value.split('.').length > 2) {
       xmrInput.value = xmrInput.value.slice(0, -1);
     }
-    xmrConvert(xmrInput.value);
+    xmrConvert();
   });
-  xmrInput.addEventListener('input', () => {
-    lastModifiedField = 'xmr';
-  });
+  xmrInput.addEventListener('input', () => lastModifiedField = 'xmr');
 
   // Add event listeners for the fiat input field
-  fiatInput.addEventListener('change', () => fiatConvert(fiatInput.value));
+  fiatInput.addEventListener('change', fiatConvert);
   fiatInput.addEventListener('keyup', () => {
-    fiatInput.value = fiatInput.value.replace(/[^\.^,\d]/g, '');
-    fiatInput.value = fiatInput.value.replace(/\,/, '.');
+    fiatInput.value = fiatInput.value.replace(/[^\.^,\d]/g, '').replace(/\,/, '.');
     if (fiatInput.value.split('.').length > 2) {
       fiatInput.value = fiatInput.value.slice(0, -1);
     }
-    fiatConvert(fiatInput.value);
+    fiatConvert();
   });
-  fiatInput.addEventListener('input', () => {
-    lastModifiedField = 'fiat';
-  });
+  fiatInput.addEventListener('input', () => lastModifiedField = 'fiat');
 
   // Add event listener for the select box to change the conversion
-  selectBox.addEventListener('change', () => {
-    if (lastModifiedField === 'xmr') {
-      xmrConvert(selectBox.value)
-    } else {
-      fiatConvert(selectBox.value)
-    }
-  });
+  selectBox.addEventListener('change', runConvert);
 
   // Hide the conversion buttons if JavaScript is enabled
   convertXMRToFiatBtn.style.display = 'none';
   convertFiatToXMRBtn.style.display = 'none';
 
   // Fetch updated exchange rates immediately, then every 5 seconds
-  fetchUpdatedExchangeRates();
+  fetchUpdatedExchangeRates(true)
   setInterval(fetchUpdatedExchangeRates, 5000);
 });
 
-function fetchUpdatedExchangeRates() {
+function fetchUpdatedExchangeRates(showAlert = false) {
   fetch('/coingecko.php')
     .then(response => response.json())
     .then(data => {
@@ -102,13 +86,12 @@ function fetchUpdatedExchangeRates() {
       updateTimeElement(data.time);
 
       // Re-execute the appropriate conversion function
-      if (lastModifiedField === 'xmr') {
-        xmrConvert();
-      } else {
-        fiatConvert();
-      }
+      runConvert();
     })
-    .catch(error => console.error('Error fetching exchange rates:', error));
+    .catch(e => {
+      const msg = `Error fetching exchange rates: ${e}`;
+      showAlert ? alert(msg) : console.error(msg);
+    });
 }
 
 function updateTimeElement(unixTimestamp) {
@@ -123,41 +106,40 @@ function updateTimeElement(unixTimestamp) {
   u.parentElement.innerHTML = u.parentElement.innerHTML.replace('Europe/Berlin', Intl.DateTimeFormat().resolvedOptions().timeZone);
 }
 
-function copyToClipBoardXMR() {
-  var content = document.getElementById('xmrInput');
+function copyToClipboardXMR() {
+  const content = document.getElementById('xmrInput');
   content.select();
+
+  // Using deprecated execCommand for compatibility with older browsers
   document.execCommand('copy');
 }
 
-function copyToClipBoardFiat() {
-  var content = document.getElementById('fiatInput');
+function copyToClipboardFiat() {
+  const content = document.getElementById('fiatInput');
   content.select();
+  
+  // Using deprecated execCommand for compatibility with older browsers
   document.execCommand('copy');
 }
 
-function fiatConvert(value) {
-  let fiatAmount = document.getElementById("fiatInput").value;
-  let xmrValue = document.getElementById("xmrInput");
-  let selectBox = document.getElementById("selectBox").value;
+function fiatConvert() {
+  const fiatAmount = document.getElementById('fiatInput').value;
+  const xmrValue = document.getElementById('xmrInput');
+  const selectBox = document.getElementById('selectBox').value;
 
   if (exchangeRates[selectBox]) {
-    let value = fiatAmount / exchangeRates[selectBox];
+    const value = fiatAmount / exchangeRates[selectBox];
     xmrValue.value = value.toFixed(12);
   }
 }
 
-function xmrConvert(value) {
-  let xmrAmount = document.getElementById("xmrInput").value;
-  let fiatValue = document.getElementById("fiatInput");
-  let selectBox = document.getElementById("selectBox").value;
+function xmrConvert() {
+  const xmrAmount = document.getElementById('xmrInput').value;
+  const fiatValue = document.getElementById('fiatInput');
+  const selectBox = document.getElementById('selectBox').value;
 
   if (exchangeRates[selectBox]) {
-    let value = xmrAmount * exchangeRates[selectBox];
-    fiatValue.value = value.toFixed(selectBox == 'BTC' || selectBox == 'LTC' || selectBox == 'ETH' || selectBox == 'XAG' || selectBox == 'XAU' ? 8 : 2);
+    const value = xmrAmount * exchangeRates[selectBox];
+    fiatValue.value = value.toFixed(['BTC', 'LTC', 'ETH', 'XAG', 'XAU'].includes(selectBox) ? 8 : 2);
   }
 }
-
-window.copyToClipBoardXMR = copyToClipBoardXMR;
-window.copyToClipBoardFiat = copyToClipBoardFiat;
-window.fiatConvert = fiatConvert;
-window.xmrConvert = xmrConvert;
