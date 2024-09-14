@@ -14,7 +14,45 @@ const exchangeRates = {};
 const runConvert = () =>
     lastModifiedField === 'xmr' ? xmrConvert() : fiatConvert();
 
+let updateInterval
+const startFetching = () => updateInterval = setInterval(fetchUpdatedExchangeRates, 5000);
+const stopFetching = () => {
+    clearInterval(updateInterval)
+    updateInterval = null;
+};
 
+const inactivityTimeout = 30 * 1000; // 30 seconds
+let lastActivity = Date.now()
+
+const resetActivity = () => lastActivity = Date.now()
+const checkInactivity = () => {
+    if (Date.now() - lastActivity > inactivityTimeout) {
+        console.log('Inactivity detected, stopping exchange rate updates');
+        stopFetching();
+    } else {
+        requestAnimationFrame(checkInactivity);
+    }
+}
+
+document.addEventListener('focus', () => {
+    const focused = document.hasFocus();
+    console.log(`Page is ${focused ? 'visible' : 'hidden'}`); 
+
+    if (focused && !updateInterval) {
+        console.log('Restarting exchange rate updates');
+        startFetching();
+
+        resetActivity();
+        requestAnimationFrame(checkInactivity);
+    } else {
+        stopFetching();
+    }
+});
+window.addEventListener('mousemove', resetActivity);
+window.addEventListener('keydown', resetActivity);
+window.addEventListener('touchstart', resetActivity);
+
+requestAnimationFrame(checkInactivity);
 
 document.addEventListener('DOMContentLoaded', () => {
     const copyXMRBtn = document.getElementById('copyXMRBtn');
@@ -71,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Fetch updated exchange rates immediately, then every 5 seconds
     fetchUpdatedExchangeRates(true)
-    setInterval(fetchUpdatedExchangeRates, 5000);
+    startFetching();
 });
 
 function fetchUpdatedExchangeRates(showAlert = false) {
