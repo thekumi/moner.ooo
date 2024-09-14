@@ -138,6 +138,7 @@
 
                 <small class="cursor-default text-white" lang="<?php echo $lang_meta; ?>">
                     <?php echo $footer_links . $getmonero . $countrymonero; ?>
+                    <?php echo $footer_html; ?>
                 </small>
             </div>
 
