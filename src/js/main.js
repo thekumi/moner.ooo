@@ -3,6 +3,14 @@ import '../css/custom.css';
 
 import Tooltip from 'bootstrap/js/dist/tooltip';
 
+/////
+let inactivityTimeout = 30; // in seconds
+let fetchInterval = 30; // in seconds
+/////
+
+inactivityTimeout = inactivityTimeout * 1000;
+fetchInterval = fetchInterval * 1000;
+
 const tooltipTriggerList = Array.from(document.querySelectorAll('[data-toggle="tooltip"]'));
 const tooltipList = tooltipTriggerList.map(tooltipTriggerEl => new Tooltip(tooltipTriggerEl, { placement: 'top' }));
 console.log(tooltipList);
@@ -14,13 +22,12 @@ const runConvert = () =>
     lastModifiedField === 'xmr' ? xmrConvert() : fiatConvert();
 
 let updateInterval
-const startFetching = () => updateInterval = setInterval(fetchUpdatedExchangeRates, 5000);
+const startFetching = () => updateInterval = setInterval(fetchUpdatedExchangeRates, fetchInterval);
 const stopFetching = () => {
     clearInterval(updateInterval)
     updateInterval = null;
 };
 
-const inactivityTimeout = 30 * 1000; // 30 seconds
 let lastActivity = Date.now()
 
 const resetActivity = () => lastActivity = Date.now()

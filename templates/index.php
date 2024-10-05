@@ -121,7 +121,7 @@
                     <?php echo $info;
                     if ($display_servers_guru) {
                         echo $servers_guru;
-                    };
+                    }
                     echo $attribution; ?>
                 </small>
                 <hr />

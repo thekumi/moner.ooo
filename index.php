@@ -20,7 +20,7 @@ $api_cg = json_decode(file_get_contents('coingecko.json'), true);
 // Configuration file
 $config = [];
 if (file_exists('config.php')) {
-    $config = require 'config.php';
+    $config = require_once 'config.php';
 }
 
 $display_servers_guru = isset($config['servers_guru']) && $config['servers_guru'] === true;
@@ -106,5 +106,5 @@ foreach (array_reverse($preferred_currencies) as $currency) {
 }
 
 // Output the HTML
-require 'templates/index.php';
+require_once 'templates/index.php';
 ?>
