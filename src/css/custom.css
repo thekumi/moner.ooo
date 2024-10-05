@@ -122,6 +122,18 @@ p {
     .btn {
         min-width: 38px;
     }
+
+    #donation-qr {
+        width: auto;
+        height: 80vh;
+        max-width: 600px;
+        max-height: 600px;
+    }
+
+    #donation-qr-container {
+        height: auto;
+        padding: 20px;
+    }
 }
 
 .bs-tooltip-auto {
@@ -136,4 +148,20 @@ p {
     top: -1px;
     border-width: 0.4rem 0.4rem 0;
     border-top-color: #000;
+}
+
+#donation-qr-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#donation-qr {
+    width: 100%;
+    height: auto;
+}
+
+#donation-qr-toggle:checked ~ #donation-qr-container {
+    display: flex;
 }
