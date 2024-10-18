@@ -2,19 +2,23 @@
 // For the HTML meta specification, e.g. <!DOCTYPE html><html lang="en">
 $lang_meta = "cs"; // https://www.w3schools.com/tags/ref_language_codes.asp
 
-$page_title = "Převod XMR na EUR/BTC/CHF/USD a mnoho dalších"; // The browser tab title or search engine title
-$meta_description = "Živý směnný kurz Monero v mnoha různých měnách, zdarma pro všechny."; // Search engine description / text
-$meta_keywords = "Monero, XMR, fiat, hodnota, kurz, živý, směna, převod"; // Search engine keywords
+$page_title = "Konverze XMR na EUR/BTC/CHF/USD a mnoho dalších"; // The browser tab title or search engine title
+$meta_description = "Živý směnný kurz Monera v mnoha různých měnách, zdarma pro všechny."; // Search engine description / text
+$meta_keywords = "Monero, XMR, fiat, hodnota, kurz, živý, směna, konverze"; // Search engine keywords
 
-$title_h1 = "převod na"; // ↓ XMR [...] ↓
+$title_h1 = "konverze na"; // ↓ XMR [...] ↓
 
-$moneroooTable = "Service provided by <a href='https://moner.ooo/'>Moner.ooo</a>, Data provided by <a href='https://www.coingecko.com/en/coins/monero' hreflang='en' rel='external'>CoinGecko</a>";
+$moneroooTable = "Službu poskytuje <a href='https://moner.ooo/'>Moner.ooo</a>, Data poskytuje <a href='https://www.coingecko.com/cs/coins/monero' hreflang='cs' rel='external'>CoinGecko</a>";
 
 // Info Text
-$info = "Směnné kurzy na této stránce slouží pouze pro informační účely. Nejsou garantovány jako přesné a mohou se změnit bez předchozího upozornění. Směnné kurzy jsou aktualizovány přibližně jednou za minutu. Poslední aktualizace v <u title='Hodiny:Minuty:Sekundy (hh:mm:ss)'>".$time."</u>, Europe/Berlín. Data poskytována <a class='text-white' href='https://www.coingecko.com/en/coins/monero' hreflang='en' rel='external' target='_blank'>CoinGecko</a>.<br/><a target='_blank' href='https://kuno.anne.media/donate/onml/' rel='external' hreflang='en'><img loading='lazy' src='./img/kuno-monero-26x26.png' width='17' height='17' alt='Kuno - Moner.ooo stránka s dary'></a>&nbsp;<a target='_blank' href='https://kuno.anne.media/' class='text-white' rel='external' hreflang='en'>Kuno – Fundraising s Monero</a> | <a class='text-white' href='{$github_url}' hreflang='en' rel='external' target='_blank'>GitHub</a>";
+$info = "Směnné kurzy na této stránce jsou pouze informativní. Není zaručeno, že jsou přesné, a mohou se změnit bez předchozího upozornění. Směnné kurzy jsou aktualizovány každých 5 sekund. Naposledy v <u title='Hodiny:Minuty:Sekundy (hh:mm:ss)'>".$time."</u> hodin, Evropa/Berlín. Data poskytuje <a class='text-white' href='https://www.coingecko.com/cs/coins/monero' hreflang='cs' rel='external' target='_blank'>CoinGecko</a>.<br/><a target='_blank' href='https://kuno.anne.media/donate/onml/' rel='external' hreflang='en'><img loading='lazy' src='./img/kuno-monero-26x26.png' width='17' height='17' alt='Kuno - Moner.ooo stránka pro dary'></a>&nbsp;<a target='_blank' href='https://kuno.anne.media/' class='text-white' rel='external' hreflang='en'>Kuno – Získávání finančních prostředků s Monero</a> | <a class='text-white' href='{$github_url}' hreflang='en' rel='external' target='_blank'>GitHub</a>";
 $servers_guru = " | <a style='text-decoration:none; font-weight:bold;' class='text-white' href='https://servers.guru/' hreflang='en' rel='external' target='_blank'>Webhosting poskytován<img loading='lazy' src='./img/servers-guru.svg' height='19' alt='Servers Guru' title='Servers Guru' /></a>";
 
 $clipboard_copy_tooltip = "Kopírovat do schránky";
+
+$l_fiatSelect = "Výběr měny";
+$l_fiatInput = "Vstupní pole pro hodnotu fiat měny";
+$l_xmrInput = "Vstupní pole pro hodnotu Monero";
 
 // Tooltip Titel
 $l_eur = "Euro";
@@ -22,7 +26,7 @@ $l_btc = "Bitcoin";
 $l_chf = "Švýcarský frank";
 $l_usd = "Americký dolar";
 $l_ltc = "Litecoin";
-$l_gbp = "Libra šterlinků";
+$l_gbp = "Britská libra";
 $l_rub = "Ruský rubl";
 $l_jpy = "Jen";
 $l_try = "Turecká lira";
@@ -30,10 +34,10 @@ $l_cad = "Kanadský dolar";
 $l_aud = "Australský dolar";
 $l_hkd = "Hongkongský dolar";
 $l_sgd = "Singapurský dolar";
-$l_pln = "Zlotý";
+$l_pln = "Złoty";
 $l_zar = "Jihoafrický rand";
 $l_inr = "Indická rupie";
-$l_aed = "Spojené arabské emiráty dirham";
+$l_aed = "UAE dirham";
 $l_eth = "Ethereum";
 $l_uah = "Hřivna"; 
 $l_krw = "Jihokorejský won";
@@ -79,7 +83,7 @@ $l_gel = "Gruzijské lari";
 $l_xdr = "Zvláštní práva čerpání";
 
 // More Monero links
-$getmonero = '<a class="text-white" href="https://www.getmonero.org/" hreflang="en" target="_blank" rel="external">Oficiální web</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">Systém komunitního crowdfundingu (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">Monero Observer</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk</a>';
-$countrymonero = ' | <a class="text-white" href="https://t.me/monero" hreflang="en" target="_blank" rel="external">Telegram - Monero XMR</a>';
+$getmonero = '<a class="text-white" href="https://www.getmonero.org/" hreflang="en" target="_blank" rel="external">Oficiální webové stránky</a> | <a class="text-white" href="https://ccs.getmonero.org/" hreflang="en" target="_blank" rel="external">Systém komunitního crowdfundingu (CCS)</a> | <a class="text-white" href="https://www.monero.observer/resources/" hreflang="en" target="_blank" rel="external">Monero Observer</a> | <a class="text-white" href="https://www.monerotalk.live/" hreflang="en" target="_blank" rel="external">Monero Talk</a>';
+$countrymonero = '';
 
 ?>
