@@ -1,7 +1,8 @@
 html {
-    background-image: linear-gradient(to bottom right, #013c4a 0, #193e4c 44%, #004b5b 100%) !important;
+    background-color: black;
     color: #fff;
     font-style: normal;
+    font-family: Arial, sans-serif;
 }
 
 body {
@@ -46,17 +47,17 @@ input.form-control {
 
 .equals-box {
     text-align: center;
-    color: #e9ecef;
+    color: #ff6600;
     font-weight: 800;
     font-size: 42px;
     padding-bottom: 1;
 }
 
 .btn-arrow {
-    border: 1px solid white;
+    border: 1px solid #ff6600;
     border-radius: 10px;
     font-size: 38px !important;
-    color: white;
+    color: #ff6600;
     padding: 0;
     cursor: pointer;
 }
@@ -68,13 +69,13 @@ input.form-control {
 
 .btn-equals {
     font-size: 38px !important;
-    color: white;
+    color: #ff6600;
     padding: 0;
     cursor: default;
 }
 
 .btn-equals:hover {
-    color: black;
+    color: white;
 }
 
 .equals-text {
@@ -82,7 +83,7 @@ input.form-control {
 }
 
 p {
-    color: #e9ecef;
+    color: white;
 }
 
 .gold {
