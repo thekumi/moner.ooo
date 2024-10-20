@@ -1,6 +1,6 @@
 html {
     background-color: black;
-    color: #fff;
+    color: #cecece;
     font-style: normal;
     font-family: Arial, sans-serif;
 }
@@ -15,7 +15,7 @@ p.fiat-info {
 
 p.fiat-info span,
 a.fiat-tooltip {
-    color: white;
+    color: #cecece;
 }
 
 .btn {
@@ -75,7 +75,7 @@ input.form-control {
 }
 
 .btn-equals:hover {
-    color: white;
+    color: #cecece;
 }
 
 .equals-text {
@@ -83,7 +83,7 @@ input.form-control {
 }
 
 p {
-    color: white;
+    color: #cecece;
 }
 
 .gold {
