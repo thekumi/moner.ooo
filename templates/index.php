@@ -13,15 +13,43 @@
 
     <meta property="og:title" content="<?php echo $page_title; ?>" />
     <meta property="og:description" content="<?php echo $meta_description; ?>" />
-    <meta property="og:image" content="<?php echo $parentUrl; ?>/img/favicon-32x32.png" />
+    <meta property="og:image" content="<?php echo $parentUrl; ?>/img/favicon-196x196.png" />
     <meta property="og:type" content="website" />
 
+    <link rel="apple-touch-icon-precomposed" sizes="196x196" href="img/favicon-196x196.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/favicon-152x152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="img/favicon-128x128.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/favicon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="img/favicon-96x96.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="64x64" href="img/favicon-64x64.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="img/favicon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/favicon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="32x32" href="img/favicon-32x32.png" />
-    <link rel="apple-touch-startup-image" href="img/favicon-32x32.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="16x16" href="img/favicon-16x16.png" />
+    <link rel="apple-touch-startup-image" href="img/favicon-196x196.png" />
+    
+    <link rel="icon" type="image/png" href="img/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="img/favicon-152x152.png" sizes="152x152" />
+    <link rel="icon" type="image/png" href="img/favicon-144x144.png" sizes="144x144" />
+    <link rel="icon" type="image/png" href="img/favicon-128x128.png" sizes="128x128" />
+    <link rel="icon" type="image/png" href="img/favicon-120x120.png" sizes="120x120" />
+    <link rel="icon" type="image/png" href="img/favicon-114x114.png" sizes="114x114" />
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="img/favicon-76x76.png" sizes="76x76" />
+    <link rel="icon" type="image/png" href="img/favicon-72x72.png" sizes="72x72" />
+    <link rel="icon" type="image/png" href="img/favicon-64x64.png" sizes="64x64" />
+    <link rel="icon" type="image/png" href="img/favicon-60x60.png" sizes="60x60" />
+    <link rel="icon" type="image/png" href="img/favicon-57x57.png" sizes="57x57" />
     <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+
     <meta name="application-name" content="Moner.ooo" />
     <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="img/favicon-32x32.png" />
+    <meta name="msapplication-TileImage" content="img/favicon-196x196.png" />
     <meta name="theme-color" content="#193e4c" />
     <meta name="apple-mobile-web-app-title" content="Moner.ooo" />
     <meta name="apple-mobile-web-app-status-bar-style" content="#193e4c" />
