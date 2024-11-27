@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="<?php echo $lang_meta; ?>">
+<html lang="<?php echo $lang_meta; ?>" <?php if ($rtl) {
+                                            echo 'dir="rtl"';
+                                        } ?>>
 
 <head>
     <meta charset="utf-8" />
@@ -7,7 +9,7 @@
     <meta name="HandheldFriendly" content="true" />
     <meta name="MobileOptimized" content="320" />
 
-    <title lang="<?php echo $lang_meta; ?>"><?php echo $page_title; ?></title>
+    <title><?php echo $page_title; ?></title>
     <meta name="description" lang="<?php echo $lang_meta; ?>" content="<?php echo $meta_description; ?>" />
     <meta name="keywords" lang="<?php echo $lang_meta; ?>" content="<?php echo $meta_keywords; ?>" />
 
