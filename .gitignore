@@ -1,5 +1,6 @@
 # Configuration file
 /config.php
+/secrets.php
 
 # NodeJS dependencies
 /node_modules/
