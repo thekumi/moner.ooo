@@ -83,6 +83,10 @@ input.form-control {
     vertical-align: super;
 }
 
+a{
+    display: inline flow-root;
+  }  
+
 p {
     color: #e9ecef;
 }
