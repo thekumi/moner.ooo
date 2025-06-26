@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const convertXMRToFiatBtn = document.getElementById('convertXMRToFiat');
   const convertFiatToXMRBtn = document.getElementById('convertFiatToXMR');
   const fiatButtons = document.querySelectorAll('.fiat-btn');
+  const dataSourceButtons = document.querySelectorAll('.data-source-btn')[0].getElementsByTagName('a');
 
   // Add event listeners for the currency buttons
   fiatButtons.forEach(button => {
@@ -36,7 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         fiatConvert();
       }
-      history.pushState(null, '', `?in=${button.textContent}`);
+
+      // Update the currency in the data source buttons
+      for (const dataSourceButton of dataSourceButtons) {
+        dataSourceButton.href = "?in=" + button.textContent + "&data_source=" + getCurrentDataSource();
+      }
+
+      history.pushState(null, '', `?in=${button.textContent}&data_source=${getCurrentDataSource()}`);
     });
   });
 
@@ -91,12 +98,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchUpdatedExchangeRates() {
-  fetch('/coingecko.php')
+  const dataSource = getCurrentDataSource();
+  const endpoint = dataSource === 'haveno' ? '/haveno.php' : '/coingecko.php';
+
+  fetch(endpoint)
     .then(response => response.json())
     .then(data => {
       // Update the exchangeRates object with the new values
       for (const [currency, value] of Object.entries(data)) {
-        exchangeRates[currency.toUpperCase()] = value.lastValue;
+        if (currency !== 'time') {
+          exchangeRates[currency.toUpperCase()] = value.lastValue;
+        }
       }
 
       updateTimeElement(data.time);
@@ -157,7 +169,28 @@ function xmrConvert(value) {
   }
 }
 
+function getCurrentDataSource() {
+  // Check for data_source in URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('data_source')) {
+    return urlParams.get('data_source');
+  }
+
+  // Check for cookie
+  const cookieValue = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('preferred_data_source='));
+
+  if (cookieValue) {
+    return cookieValue.split('=')[1];
+  }
+
+  // Default to CoinGecko
+  return 'coingecko';
+}
+
 window.copyToClipBoardXMR = copyToClipBoardXMR;
 window.copyToClipBoardFiat = copyToClipBoardFiat;
 window.fiatConvert = fiatConvert;
 window.xmrConvert = xmrConvert;
+window.getCurrentDataSource = getCurrentDataSource;

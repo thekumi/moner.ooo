@@ -9,6 +9,10 @@
 /coingecko.json
 /coingecko-original.json
 
+# Haveno.markets data
+/haveno.json
+/haveno-original.json
+
 # Compiled files
 /js/
 /css/
