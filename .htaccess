@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /
+
+# Externe Weiterleitung: index.php auf die Root-URL /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ / [L,R=301]
+
+# Externe Weiterleitung: retro.php auf /reto
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /reto\.php\ HTTP/
+RewriteRule ^reto\.php$ /reto [L,R=301]
+
+# Interne Umschreibung: /reto auf reto.php (ohne URL-Änderung)
+RewriteRule ^reto/?$ reto.php [L]
+
+# Interne Umschreibung: / (Root) auf index.php (ohne URL-Änderung)
+RewriteRule ^$ index.php [L]

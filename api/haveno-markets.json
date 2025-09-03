@@ -1,0 +1,207 @@
+{
+    "time": 1754784746,
+    "eur": {
+        "lastValue": 242.09,
+        "lastDate": 1754784746
+    },
+    "btc": {
+        "lastValue": 431.55,
+        "lastDate": 1754784746
+    },
+    "usd": {
+        "lastValue": 301.25,
+        "lastDate": 1754784746
+    },
+    "gbp": {
+        "lastValue": 210.35,
+        "lastDate": 1754784746
+    },
+    "chf": {
+        "lastValue": 261.19,
+        "lastDate": 1754784746
+    },
+    "rub": {
+        "lastValue": 19361.22,
+        "lastDate": 1754784746
+    },
+    "cny": {
+        "lastValue": 1502.01,
+        "lastDate": 1754784746
+    },
+    "jpy": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "idr": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "krw": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "try": {
+        "lastValue": 8649.08,
+        "lastDate": 1754784746
+    },
+    "aud": {
+        "lastValue": 447.92,
+        "lastDate": 1754784746
+    },
+    "bmd": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "cad": {
+        "lastValue": 442.61,
+        "lastDate": 1754784746
+    },
+    "hkd": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "nzd": {
+        "lastValue": 239.69,
+        "lastDate": 1754784746
+    },
+    "sgd": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "twd": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "ils": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "pln": {
+        "lastValue": 800,
+        "lastDate": 1754784746
+    },
+    "zar": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "czk": {
+        "lastValue": 6309.26,
+        "lastDate": 1754784746
+    },
+    "dkk": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "nok": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "sek": {
+        "lastValue": 2163.93,
+        "lastDate": 1754784746
+    },
+    "ars": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "clp": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "php": {
+        "lastValue": 18162.1,
+        "lastDate": 1754784746
+    },
+    "mxn": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "bhd": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "kwd": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "brl": {
+        "lastValue": 1330.77,
+        "lastDate": 1754784746
+    },
+    "myr": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "vef": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "uah": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "vnd": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "bdt": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "huf": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "mmk": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "ngn": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "thb": {
+        "lastValue": 8210.17,
+        "lastDate": 1754784746
+    },
+    "aed": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "sar": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "pkr": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "lkr": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "inr": {
+        "lastValue": 13037.09,
+        "lastDate": 1754784746
+    },
+    "gel": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "ltc": {
+        "lastValue": 0.4403,
+        "lastDate": 1754784746
+    },
+    "eth": {
+        "lastValue": 14.32,
+        "lastDate": 1754784746
+    },
+    "xag": {
+        "lastValue": null,
+        "lastDate": null
+    },
+    "xau": {
+        "lastValue": null,
+        "lastDate": null
+    }
+}
